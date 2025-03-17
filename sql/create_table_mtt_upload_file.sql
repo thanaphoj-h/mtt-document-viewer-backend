@@ -1,0 +1,10 @@
+CREATE TABLE IF NOT EXISTS mtt_upload_file (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    filename VARCHAR(255) NOT NULL,
+    filepath VARCHAR(255) NOT NULL,
+    filetype VARCHAR(10) NOT NULL,
+    created_by VARCHAR(50) DEFAULT 'system',
+    created_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updated_by VARCHAR(50) DEFAULT 'system',
+    updated_date DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+);
