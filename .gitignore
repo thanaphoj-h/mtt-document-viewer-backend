@@ -1,0 +1,8 @@
+# Python Virtual Environemnt File
+.venv
+
+# IDE Configuration File
+.idea
+
+# Python Cache
+__pycache__
