@@ -6,3 +6,6 @@
 
 # Python Cache
 __pycache__
+
+# log file
+logs
