@@ -8,4 +8,5 @@ create_directory(upload_directory)
 allowed_extension = [".md", ".txt"]
 
 # Max file size (5MB)
-max_file_size = 5MB
+support_units = ("tb", "gb", "mb", "kb", "b")
+max_file_size = "5MB"
