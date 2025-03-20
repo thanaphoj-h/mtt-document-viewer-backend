@@ -1,5 +1,7 @@
 import os
 from component.logger import logger
+
+from fastapi import HTTPException
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.exc import SQLAlchemyError
@@ -24,17 +26,20 @@ engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
 
-# Get Database Session with Logging
+# Dependency to get DB session with logging
 def get_db():
     db = SessionLocal()
     try:
         logger.debug("Database session started.")
-        yield db
+        yield db  # This allows FastAPI to use the session for the request
     except SQLAlchemyError as err:
+        # Log any SQLAlchemy errors
         logger.error(f"Database Error Occurred: {err}")
-        db.rollback()
+        db.rollback()  # Rollback the transaction in case of error
+        raise HTTPException(status_code=500,
+                            detail="Internal Server Error")
     finally:
-        db.close()
+        db.close()  # Ensure the session is closed when done
         logger.debug("Database session closed.")
 
 

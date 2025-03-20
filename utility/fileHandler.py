@@ -4,7 +4,7 @@ from starlette import datastructures
 from typing import Union, List
 
 from component.logger import logger
-from utility.commonhandler import validate_unit_and_convert_size
+from utility.commonHandler import validate_unit_and_convert_size
 
 
 def create_directory(directory_path):

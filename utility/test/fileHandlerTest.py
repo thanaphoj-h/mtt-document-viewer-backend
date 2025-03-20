@@ -1,5 +1,5 @@
 import os
-from utility.filehandler import validate_file_exists, validate_file_extension, validate_file_size
+from utility.fileHandler import validate_file_exists, validate_file_extension, validate_file_size
 from component.configuration import allowed_extension, support_units
 from fastapi import FastAPI, File, UploadFile
 from fastapi.testclient import TestClient
